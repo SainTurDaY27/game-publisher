@@ -13,9 +13,6 @@ class Publisher(base):
     publisher_id = Column(Integer, primary_key=True)
     publisher_name = Column(String)
 
-    # def __repr__(self):
-    #     return f'publisher_id = {self.publisher_id}, publisher_name = {self.publisher_name}'
-
 
 class Game_data(base):
     __tablename__ = 'game_data'
@@ -24,9 +21,6 @@ class Game_data(base):
     published_year = Column(Integer)
     game_type = Column(String)
     publisher_id = Column(Integer, ForeignKey('publisher.publisher_id'))
-
-    # def __repr__(self):
-    #     return "<Game_data(id='%s', game_name='%s', published_year='%s', publisher_id='%s')>" % (self.id, self.game_name, self.published_year, self.publisher_id)
 
 
 engine = create_engine('sqlite:///game_data.db')
@@ -49,4 +43,3 @@ with open('data/publisher_data.csv', 'r', encoding="utf-8") as f:
         record = Publisher(publisher_name=line[1])
         session.add(record)
 session.commit()
-

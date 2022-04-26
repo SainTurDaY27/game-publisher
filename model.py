@@ -1,9 +1,7 @@
 import sqlalchemy
-from numpy import genfromtxt
 from sqlalchemy import create_engine, Integer, String, ForeignKey, Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import pandas as pd
 
 base = declarative_base()
 
@@ -14,7 +12,7 @@ class Publisher(base):
     publisher_name = Column(String)
 
 
-class Game_data(base):
+class GameData(base):
     __tablename__ = 'game_data'
     id = sqlalchemy.Column(Integer, primary_key=True, nullable=False)
     game_name = Column(String)
@@ -32,7 +30,7 @@ with open('data/game_data.csv', 'r', encoding="utf-8") as f:
     for line in f:
         line = line.strip()
         line = line.split(',')
-        record = Game_data(game_name=line[1], published_year=line[2], game_type=line[3], publisher_id=int(line[4]))
+        record = GameData(game_name=line[1], published_year=line[2], game_type=line[3], publisher_id=int(line[4]))
         session.add(record)
 session.commit()
 

@@ -31,4 +31,21 @@ class GameDao(object):
         game.publisher_id = publisher_id
         self.session.commit()
 
+    def add_game_data(self, game_name, game_published_year, game_type, publisher_id):
+        game = GameData(game_name, game_published_year, game_type, publisher_id)
+        self.session.add(game)
+        self.session.commit()
+
+    def remove_game_data_by_id(self, game_id):
+        game = self.session.query(GameData).filter_by(id=game_id).first()
+        self.session.delete(game)
+        self.session.commit()
+
+    def remove_game_data_by_name(self, game_name):
+        game = self.session.query(GameData).filter_by(game_name=game_name).first()
+        self.session.delete(game)
+        self.session.commit()
+
+
+
 

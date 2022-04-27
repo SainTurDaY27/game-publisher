@@ -5,7 +5,7 @@ A simple database-backend application.
 
 # Create database, table and initial data
 
-run ```python model.py```, it will create the game_data database and table schema using ```sqlite3```.  
+run ```python create_data.py```, it will create the game_data database and table schema using ```sqlite3```.  
 Then it will automatically add initial data by import data from CSV file.
 
 # Configure and run the application

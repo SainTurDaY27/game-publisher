@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from game_dao import GameDao
-from publisher_dao import PublisherDao
+from .game_dao import GameDao
+from .publisher_dao import PublisherDao
 
 
 class DaoFactory:

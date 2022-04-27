@@ -12,8 +12,7 @@ Then it will automatically add initial data by import data from CSV file.
 To install the requirement packages, run ```pip install -r requirements.txt```.  
 Then run ```python game_ui.py``` or ```python publisher_ui.py``` to start the application.
 
-# game-publisher wiki
-[Documentation](https://github.com/SainTurDaY27/game-publisher/wiki/Documentation)  
+# game-publisher wiki 
 [UML Class](https://github.com/SainTurDaY27/game-publisher/wiki/UML-Class)  
 [Package diagram](https://github.com/SainTurDaY27/game-publisher/wiki/Package-diagram)
 

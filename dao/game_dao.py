@@ -15,7 +15,7 @@ class GameDao(object):
         return self.session.query(GameData).filter_by(game_name=game_name).first()
 
     def get_game_by_published_year(self, game_published_year):
-        return self.session.query(GameData).filter_by(published_year=game_published_year).first()
+        return self.session.query(GameData).filter_by(published_year=game_published_year).all()
 
     def get_game_by_type(self, game_type):
         return self.session.query(GameData).filter_by(game_type=game_type).all()
@@ -32,7 +32,7 @@ class GameDao(object):
         self.session.commit()
 
     def add_game_data(self, game_name, game_published_year, game_type, publisher_id):
-        game = GameData(game_name, game_published_year, game_type, publisher_id)
+        game = GameData(game_name=game_name, published_year=game_published_year, game_type=game_type, publisher_id=publisher_id)
         self.session.add(game)
         self.session.commit()
 

@@ -1,32 +1,21 @@
+from model import Publisher
+
+
 class PublisherDao(object):
     def __init__(self, session):
         self.session = session
 
     def get_all_publishers(self):
-        self.session.execute("SELECT * FROM publisher_data")
-        return self.session.fetchall()
+        return self.session.query(Publisher).all()
 
     def get_publisher_by_id(self, publisher_id):
-        self.session.execute("SELECT * FROM publisher_data WHERE publisher_id = %s", (publisher_id,))
-        return self.session.fetchone()
+        return self.session.query(Publisher).filter_by(publisher_id=publisher_id).first()
 
     def get_publisher_by_name(self, publisher_name):
-        self.session.execute("SELECT * FROM publisher_data WHERE publisher_name = %s", (publisher_name,))
-        return self.session.fetchone()
+        return self.session.query(Publisher).filter_by(publisher_name=publisher_name).first()
 
     def update_publisher_data(self, publisher_id, publisher_name):
-        self.session.execute("UPDATE publisher_data SET publisher_name = %s WHERE publisher_id = %s", (publisher_name, publisher_id))
+        publisher = self.session.query(Publisher).filter_by(publisher_id=publisher_id).first()
+        publisher.publisher_name = publisher_name
         self.session.commit()
-
-
-
-
-
-
-
-
-
-
-
-
 

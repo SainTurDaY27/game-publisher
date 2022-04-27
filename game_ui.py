@@ -29,78 +29,30 @@ def search_games_by_id(game_id):
     game_tree.delete(*game_tree.get_children())
     game_data = gamedao.get_game_by_id(game_id)
     check_data(game_data)
-    # if game_data is not None:
-    #     game_tree.insert('', 'end', values=(
-    #         game_data.id, game_data.game_name, game_data.published_year, game_data.game_type, game_data.publisher_id))
-    # else:
-    #     messagebox.showinfo("Error", "No game found")
-    #     refresh_game_tree()
 
 
 def search_games_by_name(game_name):
     game_tree.delete(*game_tree.get_children())
     game_data = gamedao.get_game_by_name(game_name)
     check_data(game_data)
-    # if game_data is not None:
-    #     game_tree.insert('', 'end', values=(
-    #         game_data.id, game_data.game_name, game_data.published_year, game_data.game_type, game_data.publisher_id))
-    # else:
-    #     messagebox.showinfo("Error", "No game found")
-    #     refresh_game_tree()
 
 
 def search_games_by_published_year(published_year):
     game_tree.delete(*game_tree.get_children())
     game_data = gamedao.get_game_by_published_year(published_year)
     check_data(game_data)
-    # if game_data is not None:
-    #     if isinstance(game_data, list):
-    #         for game in game_data:
-    #             game_tree.insert('', 'end', values=(
-    #                 game.id, game.game_name, game.published_year, game.game_type, game.publisher_id))
-    #     else:
-    #         game_tree.insert('', 'end', values=(
-    #             game_data.id, game_data.game_name, game_data.published_year, game_data.game_type,
-    #             game_data.publisher_id))
-    # else:
-    #     messagebox.showinfo("Error", "No game found")
-    #     refresh_game_tree()
 
 
 def search_games_by_publisher_id(publisher_id):
     game_tree.delete(*game_tree.get_children())
     game_data = gamedao.get_game_by_publisher_id(publisher_id)
     check_data(game_data)
-    # if game_data is not None:
-    #     if isinstance(game_data, list):
-    #         for game in game_data:
-    #             game_tree.insert('', 'end', values=(
-    #                 game.id, game.game_name, game.published_year, game.game_type, game.publisher_id))
-    #     elif isinstance(game_data, model.GameData):
-    #         game_tree.insert('', 'end', values=(
-    #             game_data.id, game_data.game_name, game_data.published_year, game_data.game_type,
-    #             game_data.publisher_id))
-    # else:
-    #     messagebox.showinfo("Error", "No game found")
-    #     refresh_game_tree()
 
 
 def search_games_by_type(game_type):
     game_tree.delete(*game_tree.get_children())
     game_data = gamedao.get_game_by_type(game_type)
     check_data(game_data)
-    # if game_data is not None:
-    #     if isinstance(game_data, list):
-    #         for game in game_data:
-    #             game_tree.insert('', 'end', values=(
-    #                 game.id, game.game_name, game.published_year, game.game_type, game.publisher_id))
-    #     else:
-    #         game_tree.insert('', 'end', values=(
-    #             game_data.id, game_data.game_name, game_data.published_year, game_data.game_type,
-    #             game_data.publisher_id))
-    # else:
-    #     messagebox.showinfo("Error", "No game found")
-    #     refresh_game_tree()
 
 
 def update_game(game_id, game_name, published_year, publisher_id, game_type):
@@ -132,14 +84,18 @@ def refresh_game_tree():
 
 root = Tk()
 root.title("Game Data")
+root.geometry("640x530")
+root.minsize(640, 530)
+root.maxsize(640, 530)
 
 frame_search = Frame(root)
-frame_search.grid(column=0, row=0)
+frame_search.grid(column=0, row=0, padx=20, pady=10)
 
 label_search = Label(frame_search, text="game name:", pady=20)
 label_search.grid(column=0, row=0)
 gamename_search = StringVar()
 gamename_search_entry = Entry(frame_search, textvariable=gamename_search)
+
 gamename_search_entry.grid(column=1, row=0)
 search_button = Button(frame_search, text="Search", width=10,
                        command=lambda: search_games_by_name(gamename_search.get()))

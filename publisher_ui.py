@@ -23,24 +23,12 @@ def search_publishers_by_id(publisher_id):
     publisher_tree.delete(*publisher_tree.get_children())
     publisher_data = publisherdao.get_publisher_by_id(publisher_id)
     check_data(publisher_data)
-    # if publisher_data is not None:
-    #     publisher_tree.insert('', 'end', values=(
-    #         publisher_data.publisher_id, publisher_data.publisher_name))
-    # else:
-    #     messagebox.showinfo("Error", "No publisher found")
-    #     refresh_publisher_tree()
 
 
 def search_publishers_by_name(publisher_name):
     publisher_tree.delete(*publisher_tree.get_children())
     publisher_data = publisherdao.get_publisher_by_name(publisher_name)
     check_data(publisher_data)
-    # if publisher_data is not None:
-    #     publisher_tree.insert('', 'end', values=(
-    #         publisher_data.publisher_id, publisher_data.publisher_name))
-    # else:
-    #     messagebox.showinfo("Error", "No publisher found")
-    #     refresh_publisher_tree()
 
 
 def update_publisher(publisher_id, publisher_name):
@@ -72,6 +60,9 @@ def refresh_publisher_tree():
 
 root = Tk()
 root.title("Game Publisher")
+root.geometry("500x500")
+root.minsize(500, 500)
+root.maxsize(500, 500)
 
 frame_search = Frame(root)
 frame_search.grid(column=0, row=0)

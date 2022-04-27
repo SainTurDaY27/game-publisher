@@ -20,7 +20,7 @@ class PublisherDao(object):
         self.session.commit()
 
     def add_publisher_data(self, publisher_name):
-        publisher = Publisher(publisher_name)
+        publisher = Publisher(publisher_name=publisher_name)
         self.session.add(publisher)
         self.session.commit()
 

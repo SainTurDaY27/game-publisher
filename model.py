@@ -13,7 +13,7 @@ class Publisher(base):
 
 class GameData(base):
     __tablename__ = 'game_data'
-    id = sqlalchemy.Column(Integer, primary_key=True, nullable=False)
+    id = Column(Integer, primary_key=True, nullable=False)
     game_name = Column(String)
     published_year = Column(Integer)
     game_type = Column(String)

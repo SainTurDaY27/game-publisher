@@ -14,7 +14,8 @@ Then run ```python game_ui.py``` or ```python publisher_ui.py``` to start the ap
 
 # game-publisher wiki 
 [UML Class](https://github.com/SainTurDaY27/game-publisher/wiki/UML-Class)  
-[Package diagram](https://github.com/SainTurDaY27/game-publisher/wiki/Package-diagram)
+[Package diagram](https://github.com/SainTurDaY27/game-publisher/wiki/Package-diagram)  
+[Web Service API](https://github.com/SainTurDaY27/game-publisher/wiki/Web-Service-API)
 
 
 
